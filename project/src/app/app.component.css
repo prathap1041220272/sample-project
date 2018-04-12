@@ -1,0 +1,15 @@
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.homeMrg{
+	margin-left: 5px
+}
+.nav{
+	background-color: #01579B;
+	color: white;
+	background-opacity: 0.2
+}
