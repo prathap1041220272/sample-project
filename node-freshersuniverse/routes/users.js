@@ -12,7 +12,7 @@ router.post('/signup', (req, res, next) => {
     const password = hashPassword(req.body.password)
     req.body.password = password;
     const User = new user(req.body);
-    // console.log(User)
+    console.log(User)
     User.save()
         // .then(data => {
         //     res.json(data)

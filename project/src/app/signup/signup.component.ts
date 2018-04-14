@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UserAuthService } from '../services/user-auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -7,7 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  public user;
+
+  constructor(private userServ: UserAuthService) {
+    this.user = {};
+  }
+   
+   
+   newUser() {
+     // console.log(this.user);
+    if (this.user.password === this.user.cnfPassword) {
+
+      this.userServ.createUser(this.user)
+      .then((data:any) => {
+        localStorage.setItem('token', data);
+           
+       })
+       .catch(err => {
+        console.log('signup error ', err)
+       })
+    } else {
+      window.alert('password must be same')
+    }
+  }
 
   ngOnInit() {
   }

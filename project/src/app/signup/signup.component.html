@@ -3,62 +3,52 @@
 		<h1 class="font">Signup</h1>
 
 		<!-- angular form -->
-		<form class="example-form input">
+		<form class="example-form input" (ngSubmit)="newUser()" #userForm="ngForm">
   <mat-form-field class="example-full-width">
   	<!-- Email -->
-  	 <span class="glyphicon glyphicon-user"></span>
+  	 <span class="fas fa-at"></span>
   	    <mat-label class='col-md-4 fontEmail'><p>Email</p></mat-label>
-    <input class="col-md-4 fontEmail"  matInput placeholder="Please enter your email here...." required>
+    <input class="col-md-4 fontEmail" name="email" [(ngModel)]="user.email" matInput placeholder="Please enter your email here...." required>
   
   </mat-form-field>
  <!--  username -->
  <mat-form-field class="example-full-width">
-  	 <span class="glyphicon glyphicon-user"></span>
+  	 <span class="fas fa-user"></span>
   	    <mat-label class='col-md-4 fontEmail'><p>UserName</p></mat-label>
-    <input class="col-md-4 fontEmail"  matInput placeholder="Please enter your UserName here...." required>
+    <input class="col-md-4 fontEmail" name="name" [(ngModel)]="user.username" matInput placeholder="Please enter your UserName here...." required>
   
   </mat-form-field>
   <!-- password -->
   <mat-form-field class="example-full-width">
-  	<span class="glyphicon glyphicon-lock"></span>
+  	<span class="fas fa-key"></span>
   	<mat-label class='col-md-4 fontEmail'><p>Password</p></mat-label>
-    <input matInput class="col-md-4 fontEmail" placeholder="Please enter your password here.."  [type]="hide ? 'password' : 'text'" required>
+    <input matInput class="col-md-4 fontEmail" name="Pwd" [(ngModel)]="user.password" placeholder="Please enter your password here.."  [type]="hide ? 'password' : 'text'" required>
     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
   </mat-form-field>
   <!-- confirm password -->
    <mat-form-field class="example-full-width">
-    <span class="glyphicon glyphicon-lock"></span>
+    <span class="fas fa-key"></span>
     <mat-label class='col-md-4 fontEmail'><p>Confirm</p></mat-label>
-    <input matInput class="col-md-4 fontEmail" placeholder="Please confirm your password here.."  [type]="hide ? 'password' : 'text'" required>
+    <input matInput class="col-md-4 fontEmail" name="Pwd" [(ngModel)]="user.cnfPassword" placeholder="Please confirm your password here.."  [type]="hide ? 'password' : 'text'" required>
     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
   </mat-form-field>
-  <!-- gender -->
-  <div>
-  <span><b>Gender</b> </span>
-  <mat-form-field style='margin-left: 30px'>
-    <mat-select placeholder='Select gender' required>
-      <mat-option value="before">Male</mat-option>
-      <mat-option value="after">Female</mat-option>
-      <mat-option value="above">Others</mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
+
   <!-- date of birth -->
   <mat-form-field class="example-full-width">
-    <span class="far fa-calendar"></span>
+    <span class="fas fa-calendar-alt"></span>
     <mat-label class='col-md-4 fontEmail'><p>Date Of Birth</p></mat-label>
-    <input matInput class="col-md-4 fontEmail" type="date" required>
+    <input matInput class="col-md-4 fontEmail" name="Pwd" [(ngModel)]="user.DOB" type="date" required>
   </mat-form-field>
   <!-- mobile number -->
   <mat-form-field class="example-full-width">
-    <span class="glyphicon glyphicon-earphone"></span>
+    <span class="fas fa-phone"></span>
     <mat-label class='col-md-4 fontEmail'><p>Mobile</p></mat-label>
-    <input matInput class="col-md-4 fontEmail" type="number" placeholder="Please enter your mobile number..." required >
+    <input matInput class="col-md-4 fontEmail" name="num" [(ngModel)]="user.mobile" type="number" placeholder="Please enter your mobile number..." required >
   </mat-form-field>
   <mat-checkbox>I accept terms & conditions.</mat-checkbox>
   <br>
   <br>
-<button mat-raised-button class="button" ><span> <span class="glyphicon glyphicon-log-in"> </span> Signup</span></button>
+<button mat-raised-button class="button" ><span> <span class="fas fa-user-plus"> </span> Signup</span></button>
 
 </form>
 	</div>

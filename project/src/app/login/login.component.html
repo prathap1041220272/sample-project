@@ -3,19 +3,19 @@
 		<h1 class="font">Login</h1>
 
 		<!-- angular form -->
-		<form class="example-form input">
+		<form class="example-form input" name="logiUser" (ngSubmit)='verifyUser()' #userFrom='ngForm'>
   <mat-form-field class="example-full-width">
   	<!-- Email -->
-  	 <span class="glyphicon glyphicon-user"></span>
+  	 <span class="fas fa-at"></span>
   	    <mat-label class='col-md-4 fontEmail'><p>Email</p></mat-label>
-    <input class="col-md-4 fontEmail"  matInput placeholder="Please enter your email here...." required>
+    <input class="col-md-4 fontEmail" name="email" [(ngModel)]='user.email' matInput placeholder="Please enter your email here...." required>
   
   </mat-form-field>
   <!-- password -->
   <mat-form-field class="example-full-width">
-  	<span class="glyphicon glyphicon-lock"></span>
+  	<span class="fas fa-key"></span>
   	<mat-label class='col-md-4 fontEmail'><p>Password</p></mat-label>
-    <input matInput class="col-md-4 fontEmail" placeholder="Please enter your password here.."  [type]="hide ? 'password' : 'text'" required>
+    <input matInput class="col-md-4 fontEmail" name="password" [(ngModel)]='user.password' placeholder="Please enter your password here.."  [type]="hide ? 'password' : 'text'" required>
     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
   </mat-form-field>
   <br>
@@ -23,18 +23,19 @@
   <a href="#">Forget password?</a>
   <br>
   <br>
-<button mat-raised-button class="button" ><span> <span class="glyphicon glyphicon-log-in"> </span> Login</span></button>
-<hr>
+<button mat-raised-button class="button" ><span> <span class="fas fa-sign-in-alt"> </span> Login</span></button>
+</form>
+<!-- <hr>
 <div>
   <h3 style="text-align: center">or</h3>
 </div>
 <mat-toolbar-row>
 
-  <button mat-raised-button class="button" type="button" style="background-color: #D50000" ><span><i class="fa fa-google" style="font-size:16px;background-color: #D50000"> </i> Google</span></button>
-  <button mat-raised-button class="button" type="button" ><span><i class="fa fa-facebook-square" style="font-size:16px"> </i> Facebook</span></button>
+  <button mat-raised-button class="button" type="button" style="background-color: #D50000" ><span><i class="fab fa-google" style="font-size:16px;background-color: #D50000"> </i> Google</span></button>
+  <button mat-raised-button class="button" type="button" ><span><i class="fab fa-facebook" style="font-size:16px"> </i> Facebook</span></button>
 
-</mat-toolbar-row>
+</mat-toolbar-row> -->
 
-</form>
+
 	</div>
 </div>

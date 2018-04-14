@@ -3,10 +3,12 @@
 const express =require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
+var cors = require('cors');
 const path = require('path');
 const mongoose = require('./models/connection')
 const User = require('./models');
-const morgan = require('morgan')
+const morgan = require('morgan');
+
 //creating the instance of express
 const app= express();
 //initiating the port
@@ -17,7 +19,8 @@ const port = process.env.PORT || 4446;
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 
-
+//cors
+app.use(cors())
 //morgan
 
 // create a write stream (in append mode)
