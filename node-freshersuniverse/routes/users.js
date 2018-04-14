@@ -5,14 +5,12 @@ const { user } = require('../models');
 const { hashPassword, comparePassword } = require('../service/bcrypt');
 const { tokenGen } = require('../service/token');
 
-
-
 router.post('/signup', (req, res, next) => {
     // console.log(req.body)
     const password = hashPassword(req.body.password)
     req.body.password = password;
     const User = new user(req.body);
-    console.log(User)
+    // console.log(User)
     User.save()
         // .then(data => {
         //     res.json(data)
@@ -23,7 +21,6 @@ router.post('/signup', (req, res, next) => {
             res.json(error)
         })
 })
-
 
 router.post('/login', (req, res, next) => {
     const { email, password } = req.body;
@@ -39,7 +36,6 @@ router.post('/login', (req, res, next) => {
             if (!isSucess) {
                 throw new Error('Worng password');
             }
-
             return userDoc;
         })
         .then(data => tokenGen(data.email))
@@ -48,7 +44,5 @@ router.post('/login', (req, res, next) => {
             res.status(401).json({message: error.message})
         })
 })
-
-
 
 module.exports = router;

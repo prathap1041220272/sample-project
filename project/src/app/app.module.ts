@@ -9,26 +9,31 @@ import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { AppRoutingModule } from './/app-routing.module';
 
-import { UserAuthService } from './services/user-auth.service'
+
+import { UserAuthService } from './services/user-auth.service';
+import { BooksDataService } from './services/books-data.service';
+import { AppRoutingModule } from './/app-routing.module';
+import { NewComponentComponent } from './new-component/new-component.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    NewComponentComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
-    HttpClientModule
   ],
-  providers: [UserAuthService],
+  providers: [UserAuthService,BooksDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

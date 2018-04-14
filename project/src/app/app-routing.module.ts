@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes , CanActivate } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { NewComponentComponent } from './new-component/new-component.component'
 
-
-
-const routes: Routes = [
-{ path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-   { path: '**', redirectTo: 'login', pathMatch: 'full' }
-];
+const routes : Routes = [
+{path:'',redirectTo:'/login',pathMatch:'full'},
+{path:'login' ,component: LoginComponent},
+{path:'signup',component:SignupComponent},
+{path:'books',component:NewComponentComponent},
+{path:'**',redirectTo:'/login',pathMatch:'full'}
+]
 
 @NgModule({
-	imports: [
-	 RouterModule.forRoot(routes)
-	 ],
-  exports: [
-   RouterModule 
-   ],
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+   exports: [
+  RouterModule
+  ],
   declarations: []
 })
 export class AppRoutingModule { }

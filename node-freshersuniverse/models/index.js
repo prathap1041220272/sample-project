@@ -1,8 +1,10 @@
 'use strict'
 const user =require('./user');
-const table = require('./table_db');
+const tableSchema = require('./table_db');
+const db = require('./connection')
 
 module.exports ={
 	user,
-	table
+	tableSchema,
+	db
 }

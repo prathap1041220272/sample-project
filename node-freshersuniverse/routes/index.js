@@ -1,7 +1,7 @@
 'use strict';
 
 const user = require('./users');
-const data = require('./table-data');
+const table = require('./table-data');
 const bodyParser = require('body-parser');
 const { tokenServ } = require('../service/token');
 
@@ -27,7 +27,7 @@ function routes(app){
     }
   })
 
-	app.use('/api',data);
+	app.use('/api',table);
 	 /*
     * Error Handling
     */

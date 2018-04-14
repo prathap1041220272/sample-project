@@ -7,10 +7,13 @@ const options = {
 }
 const tableSchema = new Schema({
 	id: {type: String, default: uuid},
-	name:{type:String,required:true},
-	title:{type:String,required:true},
-	author:{type:String,required:true},
-	description:{type:String,required:true}
+	language: { type: String, required: [true,'field is required']},
+	country: {type: String, required: [true,'field is required']},
+	title:  { type: String, required: [true,'field is required']},
+	author:  { type: String, required: [true,'field is required']},
+	pages:  { type: Number, required: [true,'field is required']},
+	link: String,
+	imageLink: String
 }, options)
 
 module.exports = mongoose.model('TableSchema',tableSchema)
