@@ -17,6 +17,7 @@ export class BooksDataService {
   constructor(private http: HttpClient) { }
 
   getBooksDetail(){
+    console.log(httpOptions.headers);
      return this.http   
            .get(apiURL + '/data' , httpOptions)
            .toPromise()

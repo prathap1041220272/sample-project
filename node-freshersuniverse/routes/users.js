@@ -38,8 +38,11 @@ router.post('/login', (req, res, next) => {
             }
             return userDoc;
         })
-        .then(data => tokenGen(data.email))
-        .then(token => res.json({ token }))
+        .then(data =>{ 
+           const token = tokenGen(data.email)
+           res.json({ token })
+        })
+        // .then(token => res.json({ token }))
         .catch(error => {
             res.status(401).json({message: error.message})
         })

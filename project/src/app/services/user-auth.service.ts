@@ -27,7 +27,7 @@ createUser(user) {
   	.post(apiURT + '/login',user)
   	.toPromise()
   	.then((data:any)=>{
-  		localStorage.setItem('token',data)
+  		localStorage.setItem('token',data.token)
   		return data
   	})
   	.catch(err =>{

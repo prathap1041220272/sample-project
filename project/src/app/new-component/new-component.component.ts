@@ -24,6 +24,7 @@ export class NewComponentComponent implements OnInit {
    getAllBooks(){
    	this.booksDetails.getBooksDetail()
    		.then(data => {
+         console.log(data);
    			this.books = data;
    		})
    		.catch(error => {
