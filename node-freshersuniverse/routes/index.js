@@ -20,7 +20,7 @@ function routes(app){
     let decodedToken;
     try{
       decodedToken = verify(token);
-      console.log(decodedToken);
+      // console.log(decodedToken);
       next();
     }
     catch(error){

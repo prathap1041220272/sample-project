@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatButtonModule, MatCheckboxModule,MatToolbarModule,
 	MatIconModule,MatInputModule,MatProgressSpinnerModule,
-	MatTooltipModule,MatSelectModule} from '@angular/material';
+	MatTooltipModule,MatSelectModule,MatTableModule} from '@angular/material';
 
 
 
@@ -15,7 +15,7 @@ MatButtonModule,
  MatInputModule,
  MatProgressSpinnerModule,
  MatTooltipModule,
- MatSelectModule
+ MatSelectModule,MatTableModule
  ],
 
   exports: [
@@ -26,7 +26,8 @@ MatButtonModule,
   MatInputModule,
   MatProgressSpinnerModule,
   MatTooltipModule,
-  MatSelectModule
+  MatSelectModule,
+  MatTableModule
   ],
 })
 

@@ -13,9 +13,11 @@ import { SignupComponent } from './signup/signup.component';
 
 import { UserAuthService } from './services/user-auth.service';
 import { BooksDataService } from './services/books-data.service';
+import { CanActiveService } from './services/auth-guard/can-active.service';
+import { AuthGuardService } from './services/auth-guard/auth-guard.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { NewComponentComponent } from './new-component/new-component.component';
-
+import { PaginationService } from './services/pagination/pagination.service'
 
 
 @NgModule({
@@ -33,7 +35,7 @@ import { NewComponentComponent } from './new-component/new-component.component';
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [UserAuthService,BooksDataService],
+  providers: [UserAuthService,BooksDataService,AuthGuardService,CanActiveService,PaginationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

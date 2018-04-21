@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 	public user;
 
 
-  constructor(private userServ: UserAuthService,private router: Router) { 
+  constructor(private userServ: UserAuthService,private router: Router,private route: ActivatedRoute) { 
       this.user = {};
   }
    
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
      verifyUser(){
      	 this.userServ.loginUser(this.user)
      	 .then((data:any) => {
-         this.router.navigate(['/books']);
+         return this.router.navigate(['/books']);
      	 })
      	 .catch(err => {
      	 	console.log('login user error ', err)

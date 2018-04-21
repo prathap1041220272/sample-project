@@ -1,13 +1,12 @@
 <mat-toolbar class='nav navbar-fixed-top'>
   <mat-toolbar-row>
-    <button mat-button href='#'>
+    <a mat-button href='#'>
       <h3>Project Mean</h3>
-</button>
+</a>
     
-  <button mat-button class="homeMrg" href='#'><mat-icon>home</mat-icon></button>
+  <a mat-button class="homeMrg" href='#'><mat-icon>home</mat-icon></a>
   <span class="example-spacer"></span>
-  <button mat-button routerLink="/signup"><span><span class="fas fa-user-plus"> </span> SignUp</span></button>
-  <button mat-button routerLink="/login"><span><span class="fas fa-sign-in-alt"> </span> Login</span></button>
+  <a mat-button routerLink="/login"><span><span class="fas fa-sign-in-alt"> </span> Login</span></a>
   </mat-toolbar-row>
 </mat-toolbar>
 <router-outlet></router-outlet>

@@ -2,7 +2,7 @@
 .border {
     border: 1px solid grey;
     border-radius: 9px;
-    height: 700px;
+    height: 650px;
 }
 .font{
 	font-color: #9E9E9E;
@@ -33,6 +33,10 @@ example-form {
 	background-color: #5C6BC0;
 	color: white;
 	width: 150px
+}
+.button1{
+	width: 150px;
+	margin-left: 20px
 }
 
 

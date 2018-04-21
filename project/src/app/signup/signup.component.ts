@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserAuthService } from '../services/user-auth.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-signup',
@@ -11,8 +12,9 @@ export class SignupComponent implements OnInit {
 
   public user;
 
-  constructor(private userServ: UserAuthService) {
+  constructor(private userServ: UserAuthService,private _location: Location) {
     this.user = {};
+
   }
    
    
@@ -33,6 +35,10 @@ export class SignupComponent implements OnInit {
     }
   }
 
+backClicked() {
+        this._location.back();
+    }
+    
   ngOnInit() {
   }
 

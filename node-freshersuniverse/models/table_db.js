@@ -13,7 +13,8 @@ const tableSchema = new Schema({
 	author:  { type: String, required: [true,'field is required']},
 	pages:  { type: Number, required: [true,'field is required']},
 	link: String,
-	imageLink: String
+	imageLink: String,
+	year:Number
 }, options)
 
 module.exports = mongoose.model('TableSchema',tableSchema)

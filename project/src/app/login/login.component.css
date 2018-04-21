@@ -2,8 +2,7 @@
 .border {
     border: 1px solid grey;
     border-radius: 9px;
-    height: 54
-    0px;
+    height: 400px;
 }
 .font{
 	font-color: #9E9E9E;
@@ -34,4 +33,9 @@ example-form {
 	background-color: #5C6BC0;
 	color: white;
 	width: 150px
+}
+.button1{
+	background-color: #f8f9fa;
+	width: 150px;
+	margin-left: 20px
 }
