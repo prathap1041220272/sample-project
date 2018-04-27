@@ -1,57 +1,101 @@
 <div class="col-md-4 col-md-offset-4 margin">
-	<div class="border">
-		<h1 class="font">Signup</h1>
-
-		<!-- angular form -->
-		<form class="example-form input" (ngSubmit)="newUser()" #userForm="ngForm">
-  <mat-form-field class="example-full-width">
-  	<!-- Email -->
-  	 <span class="fas fa-at"></span>
-  	    <mat-label class='col-md-4 fontEmail'><p>Email</p></mat-label>
-    <input class="col-md-4 fontEmail" name="email" [(ngModel)]="user.email" matInput placeholder="Please enter your email here...." required>
-  
-  </mat-form-field>
- <!--  username -->
- <mat-form-field class="example-full-width">
-  	 <span class="fas fa-user"></span>
-  	    <mat-label class='col-md-4 fontEmail'><p>UserName</p></mat-label>
-    <input class="col-md-4 fontEmail" name="name" [(ngModel)]="user.username" matInput placeholder="Please enter your UserName here...." required>
-  
-  </mat-form-field>
-  <!-- password -->
-  <mat-form-field class="example-full-width">
-  	<span class="fas fa-key"></span>
-  	<mat-label class='col-md-4 fontEmail'><p>Password</p></mat-label>
-    <input matInput class="col-md-4 fontEmail" name="Pwd" [(ngModel)]="user.password" placeholder="Please enter your password here.."  [type]="hide ? 'password' : 'text'" required>
-    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-  </mat-form-field>
-  <!-- confirm password -->
-   <mat-form-field class="example-full-width">
-    <span class="fas fa-key"></span>
-    <mat-label class='col-md-4 fontEmail'><p>Confirm</p></mat-label>
-    <input matInput class="col-md-4 fontEmail" name="Pwd" [(ngModel)]="user.cnfPassword" placeholder="Please confirm your password here.."  [type]="hide ? 'password' : 'text'" required>
-    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-  </mat-form-field>
-
-  <!-- date of birth -->
-  <mat-form-field class="example-full-width">
-    <span class="fas fa-calendar-alt"></span>
-    <mat-label class='col-md-4 fontEmail'><p>Date Of Birth</p></mat-label>
-    <input matInput class="col-md-4 fontEmail" name="Pwd" [(ngModel)]="user.DOB" type="date" required>
-  </mat-form-field>
-  <!-- mobile number -->
-  <mat-form-field class="example-full-width">
-    <span class="fas fa-phone"></span>
-    <mat-label class='col-md-4 fontEmail'><p>Mobile</p></mat-label>
-    <input matInput class="col-md-4 fontEmail" name="num" [(ngModel)]="user.mobile" type="number" placeholder="Please enter your mobile number..." required >
-  </mat-form-field>
-  <mat-checkbox>I accept terms & conditions.</mat-checkbox>
-  <br>
-  <br>
-<button mat-raised-button class="button" ><span> <span class="fas fa-user-plus"> </span> Signup</span></button>
-
-<button mat-raised-button class="button1" (click)='backClicked()' >Back</button>
-
-</form>
-	</div>
+  <div class="border">
+    <h1 class="font">Signup</h1>
+    <!-- angular form -->
+    <form class="example-form input" (ngSubmit)="newUser()" #userForm="ngForm">
+      <mat-form-field class="example-full-width">
+        <!-- Email -->
+        <span class="fas fa-at"></span>
+        <mat-label class='col-md-4 fontEmail'>
+          <p>Email</p>
+        </mat-label>
+        <input class="col-md-4 fontEmail" name="email" #userMail="ngModel" [(ngModel)]="user.email" matInput placeholder="Please enter your email here...." required email />
+        <div *ngIf="userMail.invalid && (userMail.dirty || userMail.touched)" style="color: red">
+          <span *ngIf="userMail.dirty">
+            Please enter valid email
+          </span>
+          <div *ngIf="userMail.errors.required">
+            Email is required.
+          </div>
+        </div>
+      </mat-form-field>
+      <!--  username -->
+      <mat-form-field class="example-full-width">
+        <span class="fas fa-user"></span>
+        <mat-label class='col-md-4 fontEmail'>
+          <p>UserName</p>
+        </mat-label>
+        <input class="col-md-4 fontEmail" name="name" #userName="ngModel" [(ngModel)]="user.username" matInput minlength="5" placeholder="Please enter your UserName here...." required>
+        <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" style="color:red">
+          <div *ngIf="userName.errors.required">
+            UserName is required.
+          </div>
+          <div *ngIf="userName.errors.minlength">
+            UserName must be at least 5 characters long.
+          </div>
+        </div>
+      </mat-form-field>
+      <!-- password -->
+      <mat-form-field class="example-full-width">
+        <span class="fas fa-key"></span>
+        <mat-label class='col-md-4 fontEmail'>
+          <p>Password</p>
+        </mat-label>
+        <input matInput class="col-md-4 fontEmail" name="Pwd" #userPwd="ngModel" [(ngModel)]="user.password" minlength="8" placeholder="Please enter your password here.." [type]="hide ? 'password' : 'text'" required password/>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        <div *ngIf="userPwd.invalid && (userPwd.dirty || userPwd.touched)" style="color:red">
+          <div *ngIf="userPwd.errors.required">
+            Password is required.
+          </div>
+          <div *ngIf="userPwd.errors.minlength">
+            Password must be at least 8 characters long.
+          </div>
+        </div>
+      </mat-form-field>
+      <!-- confirm password -->
+      <mat-form-field class="example-full-width">
+        <span class="fas fa-key"></span>
+        <mat-label class='col-md-4 fontEmail'>
+          <p>Confirm</p>
+        </mat-label>
+        <input matInput class="col-md-4 fontEmail" name="Pwd" [(ngModel)]="user.cnfPassword" placeholder="Please confirm your password here.." [type]="hide ? 'password' : 'text'" required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      </mat-form-field>
+      <!-- date of birth -->
+      <mat-form-field class="example-full-width">
+        <span class="fas fa-calendar-alt"></span>
+        <mat-label class='col-md-4 fontEmail'>
+          <p>Date Of Birth</p>
+        </mat-label>
+        <input matInput class="col-md-4 fontEmail" #userDob="ngModel" name="Pwd" [(ngModel)]="user.DOB" type="date" required>
+         <div *ngIf="userDob.invalid && (userDob.dirty || userDob.touched)" style="color:red">
+          <div *ngIf="userDob.errors.required">
+            DOB is required.
+          </div>
+        </div>
+      </mat-form-field>
+      <!-- mobile number -->
+      <mat-form-field class="example-full-width">
+        <span class="fas fa-phone"></span>
+        <mat-label class='col-md-4 fontEmail'>
+          <p>Mobile</p>
+        </mat-label>
+        <input matInput class="col-md-4 fontEmail" name="mobile" #userMbl="ngModel" [(ngModel)]="user.mobile" type="number" minlength="12" placeholder="Please enter your mobile number..." required/>
+        <div *ngIf="userMbl.invalid && (userMbl.dirty || userMbl.touched)" style="color:red">
+          <div *ngIf="userMbl.errors.required">
+            Mobile No. is required.
+          </div>
+          <div *ngIf="userMbl.errors.minlength">
+            Mobile No. must be at least 10 numbers long.
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-checkbox>I accept terms & conditions.</mat-checkbox>
+      <br>
+      <br>
+      <button mat-raised-button class="button" [disabled]="userForm.invalid"><span> <span class="fas fa-user-plus"> </span> Signup</span>
+      </button>
+      <button mat-raised-button class="button1" (click)='backClicked()'>Back</button>
+    </form>
+  </div>
 </div>

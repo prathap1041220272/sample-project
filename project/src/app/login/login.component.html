@@ -1,31 +1,28 @@
-<div class="col-md-4 col-md-offset-4 margin">
-	<div class="border">
-		<h1 class="font">Login</h1>
-
-		<!-- angular form -->
-		<form class="example-form input" name="logiUser" (ngSubmit)='verifyUser()' #userFrom='ngForm'>
-  <mat-form-field class="example-full-width">
-  	<!-- Email -->
-  	 <span class="fas fa-at"></span>
-  	    <mat-label class='col-md-4 fontEmail'><p>Email</p></mat-label>
-    <input class="col-md-4 fontEmail" name="email" [(ngModel)]='user.email' matInput placeholder="Please enter your email here...." required>
-  
-  </mat-form-field>
-  <!-- password -->
-  <mat-form-field class="example-full-width">
-  	<span class="fas fa-key"></span>
-  	<mat-label class='col-md-4 fontEmail'><p>Password</p></mat-label>
-    <input matInput class="col-md-4 fontEmail" name="password" [(ngModel)]='user.password' placeholder="Please enter your password here.."  [type]="hide ? 'password' : 'text'" required>
+<!-- <div class="col-md-4 col-md-offset-4 margin">
+  <div class="border">
+    <h1 class="font">Login</h1> -->
+<!-- angular form -->
+<!-- <form class="example-form input" >
+  <mat-form-field class="example-full-width"> -->
+<!-- Email -->
+<!--  <span class="fas fa-at"></span>
+        <mat-label class='col-md-4 fontEmail'><p>Email</p></mat-label>
+    <input class="col-md-4 fontEmail"  matInput placeholder="Please enter your email here...." required> -->
+<!-- </mat-form-field> -->
+<!-- password -->
+<!-- <mat-form-field class="example-full-width">
+    <span class="fas fa-key"></span>
+    <mat-label class='col-md-4 fontEmail'><p>Password</p></mat-label>
+    <input matInput class="col-md-4 fontEmail"  placeholder="Please enter your password here.."  [type]="hide ? 'password' : 'text'" required>
     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-  </mat-form-field>
-  <br>
+  </mat-form-field> -->
+<!-- <br>
   <mat-checkbox>Remember me!</mat-checkbox>
   <a href="#">Forget password?</a>
   <br>
   <br>
 <button mat-raised-button class="button" ><span> <span class="fas fa-sign-in-alt"> </span> Login</span></button>
-<button mat-raised-button class="button1" routerLink="/signup"><span> <span class="fas fa-user-plus"> </span> SingUp</span></button>
-</form>
+</form> -->
 <!-- <hr>
 <div>
   <h3 style="text-align: center">or</h3>
@@ -36,7 +33,68 @@
   <button mat-raised-button class="button" type="button" ><span><i class="fab fa-facebook" style="font-size:16px"> </i> Facebook</span></button>
 
 </mat-toolbar-row> -->
-
-
-	</div>
+<!--  </div>
+</div> -->
+<div class="container div1" style="margin-top: 100px">
+  <form name="logiUser" (ngSubmit)='verifyUser()' #userFrom="ngForm">
+    <div class="row">
+      <h2 style="text-align:center">Login (or) SignUp</h2>
+      <div class="vl">
+        <span class="vl-innertext">or</span>
+      </div>
+      <div class="col">
+        <a href="#" class="fb btn">
+          <i class="fab fa-facebook"></i> Login with Facebook
+         </a>
+        <a href="#" class="twitter btn">
+          <i class="fab fa-twitter"></i> Login with Twitter
+        </a>
+        <a href="#" class="google btn"><i class="fab fa-google">
+          </i> Login with Google+
+        </a>
+      </div>
+      <div class="col">
+        <div>
+          <input type="email" name="email" #userMail="ngModel" [(ngModel)]='user.email' placeholder="Email" required email />
+          <!--  <span *ngIf="userMail.invalid && (userMail.dirty || userMail.touched) " style="color: red">Please enter valid email</span> -->
+          <!--    <div *ngIf="userMail.untouched" style="color:red">
+    Email is required.
+  </div> -->
+          <div *ngIf="userMail.invalid && (userMail.dirty || userMail.touched)" style="color: red">
+            <span *ngIf="userMail.errors.required">
+            Email is required.
+          </span>
+            <span *ngIf="userMail.dirty">
+            Please enter valid email
+          </span>
+          </div>
+        </div>
+        <div>
+          <input type="password" name="password" #userPwd="ngModel" [(ngModel)]='user.password' minlength="8" placeholder="Password" required password />
+          <div *ngIf="userPwd.invalid && (userPwd.dirty || userPwd.touched)" style="color:red">
+            <div *ngIf="userPwd.errors.required">
+              Password is required.
+            </div>
+            <div *ngIf="userPwd.errors.minlength">
+              Password must be at least 8 characters long.
+            </div>
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-success" [disabled]="userFrom.invalid">Login</button>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <a routerLink='/signup' class="btn" style="background-color: grey"><span style="color:white"><span class="fas fa-user-plus"> </span> SignUp</span></a>
+    </div>
+    <div class="col">
+      <a href="#" style="color:white" class="btn" style="background-color: grey"><span style="color:white">Forgot password?</span></a>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

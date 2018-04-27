@@ -1,58 +1,68 @@
- <div class="example-container mat-elevation-z8 box">
- <div class="example-header">
+<mat-toolbar class='nav navbar-fixed-top'>
+  <mat-toolbar-row>
+    <a mat-button href='#'>
+      <h3>Project Mean</h3>
+    </a>
+    <a mat-button class="homeMrg" href='#'>
+      <mat-icon>home</mat-icon>
+    </a>
+    <span class="example-spacer"></span>
+    <a mat-button routerLink="/logout"><span><span class="fas fa-sign-out-alt"> </span> Login Out</span></a>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="example-container mat-elevation-z8 box">
+  <div class="example-header">
     <mat-form-field>
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
     </mat-form-field>
   </div>
-
-
-<div>
-<div class="table-responsive">
-  <table class="table">
-    <thead class="head">
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Language</th>
-        <th>Wiki Link</th>
-        <th>Book</th>
-        <th>Country</th>
-        <th>Pages</th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let book of pagedItems; let i = index">
-      <tr>
-        <td>{{book.title}}</td>
-        <td>{{book.author}}</td>
-        <td>{{book.language}}</td>
-        <td><a href="{{book.link}}">{{book.link}}</a></td>
-        <td><img src="assets/{{book.imageLink}}" alt="" height="60" width="60"></td>
-        <td>{{book.country}}</td>
-        <td>{{book.pages}}</td>
-      </tr>
-    </tbody>
-    <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-                <li [ngClass]="{disabled:pager.currentPage === 1}">
-                    <a (click)="setPage(1)">First</a>
-                </li>
-                <li [ngClass]="{disabled:pager.currentPage === 1}">
-                    <a (click)="setPage(pager.currentPage - 1)">Previous</a>
-                </li>
-                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-                    <a (click)="setPage(page)">{{page}}</a>
-                </li>
-                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                    <a (click)="setPage(pager.currentPage + 1)">Next</a>
-                </li>
-                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                    <a (click)="setPage(pager.totalPages)">Last</a>
-                </li>
-            </ul>
-  </table>
+  <div>
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="head">
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Language</th>
+            <th>Wiki Link</th>
+            <th>Book</th>
+            <th>Country</th>
+            <th>Pages</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let book of pagedItems; let i = index">
+          <tr>
+            <!--  <td>{{i+1}}</td> -->
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.language}}</td>
+            <td><a href="{{book.link}}">{{book.link}}</a></td>
+            <td><img src="assets/{{book.imageLink}}" alt="" height="60" width="60"></td>
+            <td>{{book.country}}</td>
+            <td>{{book.pages}}</td>
+          </tr>
+        </tbody>
+        <ul *ngIf="pager.pages && pager.pages.length" class="pagination ">
+          <li [ngClass]="{disabled:pager.currentPage === 1}">
+            <a (click)="setPage(1)">First</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === 1}">
+            <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+          </li>
+          <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+            <a (click)="setPage(page)">{{page}}</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+            <a (click)="setPage(pager.currentPage + 1)">Next</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+            <a (click)="setPage(pager.totalPages)">Last</a>
+          </li>
+        </ul>
+      </table>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-
 <!-- <div class="example-container mat-elevation-z8 box">
   <div class="example-header">
     <mat-form-field>
@@ -61,33 +71,30 @@
   </div>
 
   <mat-table #table [dataSource]="dataSource"> -->
-
-    <!-- Position Column -->
-   <!--  <ng-container matColumnDef="position">
+<!-- Position Column -->
+<!--  <ng-container matColumnDef="position">
       <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
     </ng-container> -->
-
-    <!-- Name Column -->
-  <!--   <ng-container matColumnDef="name">
+<!-- Name Column -->
+<!--   <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
     </ng-container> -->
-
-    <!-- Weight Column -->
-  <!--   <ng-container matColumnDef="weight">
+<!-- Weight Column -->
+<!--   <ng-container matColumnDef="weight">
       <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
     </ng-container> -->
-
-    <!-- Symbol Column -->
-   <!--  <ng-container matColumnDef="symbol">
+<!-- Symbol Column -->
+<!--  <ng-container matColumnDef="symbol">
       <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
     </ng-container>
  -->
- <!--    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<!--    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 
 </div> -->
+<router-outlet></router-outlet>

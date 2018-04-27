@@ -9,6 +9,7 @@ import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 import { UserAuthService } from './services/user-auth.service';
@@ -25,6 +26,7 @@ import { PaginationService } from './services/pagination/pagination.service'
     AppComponent,
     LoginComponent,
     SignupComponent,
+    LogoutComponent,
     NewComponentComponent
   ],
   imports: [

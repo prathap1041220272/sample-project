@@ -1,3 +1,24 @@
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.homeMrg{
+  margin-left: 5px
+}
+.nav{
+  background-color: #01579B;
+  color: white;
+  background-opacity: 0.2;
+}
+
+
+
+
+
+
 .example-container {
   display: flex;
   flex-direction: column;
@@ -22,5 +43,6 @@
 	margin-top: 100px;
 	margin-bottom: 100px;
 	margin-left: 100px;
-	margin-right: 100px
+	margin-right: 100px;
+  background-color: white
 }
