@@ -10,6 +10,7 @@
     <a mat-button routerLink="/logout"><span><span class="fas fa-sign-out-alt"> </span> Login Out</span></a>
   </mat-toolbar-row>
 </mat-toolbar>
+
 <div class="example-container mat-elevation-z8 box">
   <div class="example-header">
     <mat-form-field>
@@ -21,6 +22,7 @@
       <table class="table">
         <thead class="head">
           <tr>
+            <th>SNO.</th>
             <th>Title</th>
             <th>Author</th>
             <th>Language</th>
@@ -32,7 +34,7 @@
         </thead>
         <tbody *ngFor="let book of pagedItems; let i = index">
           <tr>
-            <!--  <td>{{i+1}}</td> -->
+            <td>{{i+1}}</td>
             <td>{{book.title}}</td>
             <td>{{book.author}}</td>
             <td>{{book.language}}</td>
@@ -42,7 +44,8 @@
             <td>{{book.pages}}</td>
           </tr>
         </tbody>
-        <ul *ngIf="pager.pages && pager.pages.length" class="pagination ">
+
+        <ul *ngIf="pager.pages && pager.pages.length" class="pagination display">
           <li [ngClass]="{disabled:pager.currentPage === 1}">
             <a (click)="setPage(1)">First</a>
           </li>

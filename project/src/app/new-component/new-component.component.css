@@ -46,3 +46,6 @@
 	margin-right: 100px;
   background-color: white
 }
+.display{
+  display: inline-flex;
+}

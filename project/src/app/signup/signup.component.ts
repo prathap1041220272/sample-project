@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
         console.log('signup error ', err)
        })
     } else {
-      window.alert('password Mismatch')
+      window.alert(`password Mismatch`)
     }
   }
 
