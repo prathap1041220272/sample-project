@@ -1,4 +1,4 @@
-<mat-toolbar class='nav navbar-fixed-top'>
+<!-- <mat-toolbar class='nav navbar-fixed-top'>
   <mat-toolbar-row>
     <a mat-button href='#'>
       <h3>Project Mean</h3>
@@ -6,10 +6,13 @@
     <a mat-button class="homeMrg" href='#'>
       <mat-icon>home</mat-icon>
     </a>
+    <a mat-button class="homeMrg" routerLink='/chat'>
+      chat
+    </a>
     <span class="example-spacer"></span>
-    <a mat-button routerLink="/logout"><span><span class="fas fa-sign-out-alt"> </span> Login Out</span></a>
+    <a mat-button routerLink="/logout"><span><span class="fas fa-sign-out-alt"> </span> Logout</span></a>
   </mat-toolbar-row>
-</mat-toolbar>
+</mat-toolbar> -->
 
 <div class="example-container mat-elevation-z8 box">
   <div class="example-header">
@@ -44,7 +47,6 @@
             <td>{{book.pages}}</td>
           </tr>
         </tbody>
-
         <ul *ngIf="pager.pages && pager.pages.length" class="pagination display">
           <li [ngClass]="{disabled:pager.currentPage === 1}">
             <a (click)="setPage(1)">First</a>

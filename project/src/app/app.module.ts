@@ -18,7 +18,7 @@ import { CanActiveService } from './services/auth-guard/can-active.service';
 import { AuthGuardService } from './services/auth-guard/auth-guard.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { NewComponentComponent } from './new-component/new-component.component';
-import { PaginationService } from './services/pagination/pagination.service'
+import { PaginationService } from './services/pagination/pagination.service';
 
 
 @NgModule({
@@ -35,9 +35,15 @@ import { PaginationService } from './services/pagination/pagination.service'
     MaterialModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
-  providers: [UserAuthService,BooksDataService,AuthGuardService,CanActiveService,PaginationService],
+  providers: [
+  UserAuthService,
+   BooksDataService,
+    AuthGuardService,
+     CanActiveService,
+      PaginationService
+      ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

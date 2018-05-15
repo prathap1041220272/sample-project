@@ -1,4 +1,4 @@
-<!-- <mat-toolbar class='nav navbar-fixed-top'>
+<mat-toolbar class='nav navbar-fixed-top'>
   <mat-toolbar-row>
     <a mat-button href='#'>
       <h3>Project Mean</h3>
@@ -6,8 +6,9 @@
     
   <a mat-button class="homeMrg" href='#'><mat-icon>home</mat-icon></a>
   <span class="example-spacer"></span>
-  <a mat-button routerLink="/login"><span><span class="fas fa-sign-in-alt"> </span> Login</span></a>
-  <a mat-button routerLink="/signup"><span><span class="fas fa-user-plus"> </span> SignUp</span></a>
+  <a mat-button *ngIf="!isLoggedIn" routerLink="/login"><span><span class="fas fa-sign-in-alt"> </span> Login</span></a>
+  <a mat-button *ngIf="!isLoggedIn" routerLink="/signup"><span><span class="fas fa-user-plus"> </span> SignUp</span></a>
+  <a mat-button *ngIf="isLoggedIn" routerLink="/logout"><span><span class="fas fa-sign-out-alt"> </span> Logout</span></a>
   </mat-toolbar-row>
-</mat-toolbar> -->
+</mat-toolbar>
 <router-outlet></router-outlet>

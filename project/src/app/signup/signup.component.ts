@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserAuthService } from '../services/user-auth.service';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +12,10 @@ export class SignupComponent implements OnInit {
 
   public user;
 
-  constructor(private userServ: UserAuthService,private _location: Location) {
+  constructor(private userServ: UserAuthService,
+    private _location: Location,
+    private router: Router,
+    private route: ActivatedRoute) {
     this.user = {};
 
   }
@@ -25,18 +28,19 @@ export class SignupComponent implements OnInit {
       this.userServ.createUser(this.user)
       .then((data:any) => {
         localStorage.setItem('token', data);
-           
+           return this.router.navigate(['/login']);
        })
+      
        .catch(err => {
         console.log('signup error ', err)
        })
     } else {
-      window.alert(`password Mismatch`)
+      confirm(`password Mismatch password should match`)
     }
   }
 
 backClicked() {
-        this._location.back();
+        return this.router.navigate(['/login']);
     }
     
   ngOnInit() {

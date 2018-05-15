@@ -19,7 +19,7 @@ createUser(user) {
         return data
       })
       .catch(err => {
-        console.log('Create User err-')
+        console.log('Signup err-')
       })
   }
 
@@ -32,7 +32,7 @@ createUser(user) {
   		return data
   	})
   	.catch(err =>{
-  		console.log('login user error-',err)
+  		console.log('login error-',err)
   	})
   }
 }

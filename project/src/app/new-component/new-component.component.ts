@@ -17,7 +17,10 @@ export class NewComponentComponent implements OnInit {
    pager: any = {};
    pagedItems: any[];
    
-  constructor(private booksDetails:BooksDataService,private pagerService: PaginationService,private router: Router, private route: ActivatedRoute) {
+  constructor(private booksDetails:BooksDataService,
+              private pagerService: PaginationService,
+              private router: Router, 
+              private route: ActivatedRoute) {
      this.getAllBooks();
      this.books = [];
    }
